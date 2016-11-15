@@ -33,16 +33,18 @@
 	}
 	?>
 
+
+</div>
+
+<div class="functions">
 	<button onclick="onClick()">Edit Article</button>
 
 	<script>
 		function onClick() {
 			var t = document.getElementById("mainTxt").innerHTML;
-			t.backgroundColor = "BLUE";
-			document.getElementById("mainTxt").innerHTML = "<textarea></textarea>"
+			document.getElementById("mainTxt").innerHTML ='<textarea class="txt">' + t + '</textarea>';
 		}
 	</script>
-
 </div>
 </body>
 </html>

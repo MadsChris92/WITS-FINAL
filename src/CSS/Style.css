@@ -22,3 +22,9 @@
 
     border-right: 3px solid gray;
 }
+
+.txt {
+    height: 100%;
+    width: 100%;
+    min-height:200px;
+}
