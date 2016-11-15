@@ -22,29 +22,37 @@
 	?>
 </div>
 
-<div class="main" id="mainTxt">
-	<?php
-	if(isset($_GET['link'])){
-		$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
-		if(sizeof($contents)>1)
-			echo $contents[1];
-		else
-			echo $contents[0];
-	}
-	?>
-
-
-</div>
-
-<div class="functions">
-	<button onclick="onClick()">Edit Article</button>
-
-	<script>
-		function onClick() {
-			var t = document.getElementById("mainTxt").innerHTML;
-			document.getElementById("mainTxt").innerHTML ='<textarea class="txt">' + t + '</textarea>';
+<div class="main">
+	<div id="mainTxt">
+		<?php
+		if(isset($_GET['link'])){
+			$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
+			if(sizeof($contents)>1)
+				echo $contents[1];
+			else
+				echo $contents[0];
 		}
-	</script>
+		?>
+	</div>
+
+	<div class="functions">
+		<button id="knas" onclick="onClickEdit()">Edit Article</button>
+
+		<script>
+			function onClickEdit() {
+				var t = document.getElementById("mainTxt").innerHTML;
+				document.getElementById("mainTxt").innerHTML ='<textarea class="txt">' + t + '</textarea>';
+				document.getElementById("knas").onclick = onClickSave;
+				document.getElementById("knas").innerHTML = "Save Changes";
+			}
+			function onClickSave() {
+				var t = document.getElementsByClassName("txt").item(0).innerHTML;
+				document.getElementById("mainTxt").innerHTML = t;
+				document.getElementById("knas").onclick = onClickEdit;
+				document.getElementById("knas").innerHTML = "Edit Article";
+			}
+		</script>
+	</div>
 </div>
 </body>
 </html>
