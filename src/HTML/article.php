@@ -1,8 +1,6 @@
 <?php
 
-$farticles = scandir(__DIR__ . "/articles");
-
-file_put_contents("articleList", implode("\n", $farticles));
+$farticles = scandir(__DIR__ . "/../ARTICLES");
 
 foreach ($farticles as $farticle){
 	echo $farticle;
