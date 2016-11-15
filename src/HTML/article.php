@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>WITS Wiki</title>
 	<link rel="stylesheet" href="../CSS/Style.css">
-	<script src="ajax.js"></script>
 	<?php
 	include "list.php";
 	?>
@@ -41,7 +40,7 @@
 		</div>
 	</form>
 
-	<div class="functions">
+	<div class="bottom">
 		<?php
 		if(isset($_GET['link'])){
 			echo '<button id="knas" onclick="onClickEdit()">Edit Article</button>';

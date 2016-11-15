@@ -5,6 +5,8 @@
     float: right;
     width:78%;
     padding-left: 10px;
+    padding-top: 10px;
+    border-left: 3px solid gray;
 
 }
 .top {
@@ -20,11 +22,17 @@
     float:left;
     width: 20%;
 
-    border-right: 3px solid gray;
+
 }
 
 .txt {
     height: 100%;
     width: 100%;
-    min-height:200px;
+    min-height:500px;
+}
+
+.bottom {
+    float: bottom;
+    padding-top: 10px;
+    border-top: solid gray 2px;
 }
