@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>WITS Wiki</title>
 	<link rel="stylesheet" href="../CSS/Style.css">
+	<script src="ajax.js"></script>
 	<?php
 	include "list.php";
 	?>
@@ -23,31 +24,43 @@
 </div>
 
 <div class="main">
-	<div id="mainTxt">
+	<form method='post' action='save.php'>
 		<?php
 		if(isset($_GET['link'])){
-			$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
-			if(sizeof($contents)>1)
-				echo $contents[1];
-			else
-				echo $contents[0];
-		}
+		echo "<input type='hidden' name='link' value='".$_GET['link']."'>";
 		?>
-	</div>
+		<div id='mainTxt'>
+			<?php
+				$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
+				if(sizeof($contents)>1)
+					echo $contents[1];
+				else
+					echo $contents[0];
+			}
+			?>
+		</div>
+	</form>
 
 	<div class="functions">
-		<button id="knas" onclick="onClickEdit()">Edit Article</button>
-
+		<?php
+		if(isset($_GET['link'])){
+			echo '<button id="knas" onclick="onClickEdit()">Edit Article</button>';
+		}
+		?>
+		<input type="hidden" id="hide">
 		<script>
 			function onClickEdit() {
-				var t = document.getElementById("mainTxt").innerHTML;
-				document.getElementById("mainTxt").innerHTML ='<textarea class="txt">' + t + '</textarea>';
-				document.getElementById("knas").onclick = onClickSave;
-				document.getElementById("knas").innerHTML = "Save Changes";
+				var content = document.getElementById("mainTxt").innerHTML;
+				document.getElementById("hide").value = content;
+				document.getElementById("mainTxt").innerHTML =''+
+					'<textarea name="content" class="txt" id="txt">' + content + '</textarea>'+
+					'<input type="submit" value="Save Changes">';
+				document.getElementById("knas").onclick = onClickCancel;
+				document.getElementById("knas").innerHTML = "Discard Changes";
 			}
-			function onClickSave() {
-				var t = document.getElementsByClassName("txt").item(0).innerHTML;
-				document.getElementById("mainTxt").innerHTML = t;
+			function onClickCancel() {
+				var content = document.getElementById("txt").innerHTML;
+				document.getElementById("mainTxt").innerHTML = document.getElementById("hide").value;
 				document.getElementById("knas").onclick = onClickEdit;
 				document.getElementById("knas").innerHTML = "Edit Article";
 			}
