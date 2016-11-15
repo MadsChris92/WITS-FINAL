@@ -22,7 +22,7 @@
 	?>
 </div>
 
-<div class="main">
+<div class="main" id="mainTxt">
 	<?php
 	if(isset($_GET['link'])){
 		$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
@@ -39,6 +39,7 @@
 		function onClick() {
 			var t = document.getElementById("mainTxt").innerHTML;
 			t.backgroundColor = "BLUE";
+			document.getElementById("mainTxt").innerHTML = "<textarea></textarea>"
 		}
 	</script>
 
