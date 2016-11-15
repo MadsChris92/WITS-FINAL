@@ -1,0 +1,24 @@
+.clear{
+    clear:both;
+}
+.main{
+    float: right;
+    width:78%;
+
+}
+.top {
+
+    width:100%;
+    height: 92px;
+    text-align: center;
+    font-size: 250%;
+    font-family: "Cambria", Cambria, SansSerif;
+    border-bottom: 5px solid black;
+}
+.left {
+    height: 90%;
+    float:left;
+    width: 20%;
+
+    border-right: 5px solid black;
+}
