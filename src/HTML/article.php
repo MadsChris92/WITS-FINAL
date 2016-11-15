@@ -23,7 +23,7 @@
 </div>
 
 <div class="main">
-	<form method='post' action='save.php'>
+	<form method='post' action='save.php' target="_self">
 		<?php
 		if(isset($_GET['link'])){
 		echo "<input type='hidden' name='link' value='".$_GET['link']."'>";
@@ -58,7 +58,6 @@
 				document.getElementById("knas").innerHTML = "Discard Changes";
 			}
 			function onClickCancel() {
-				var content = document.getElementById("txt").innerHTML;
 				document.getElementById("mainTxt").innerHTML = document.getElementById("hide").value;
 				document.getElementById("knas").onclick = onClickEdit;
 				document.getElementById("knas").innerHTML = "Edit Article";
