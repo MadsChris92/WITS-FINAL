@@ -32,6 +32,16 @@
 			echo $contents[0];
 	}
 	?>
+
+	<button onclick="onClick()">Edit Article</button>
+
+	<script>
+		function onClick() {
+			var t = document.getElementById("mainTxt").innerHTML;
+			t.backgroundColor = "BLUE";
+		}
+	</script>
+
 </div>
 </body>
 </html>
