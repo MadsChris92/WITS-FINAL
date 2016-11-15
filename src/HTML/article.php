@@ -14,28 +14,34 @@
 <div class="left">
 	<?php
 	foreach ($articles as $article){
-		if(isset($articleNames[$article]))
+		if(isset($articleNames[$article]) && $article!=null)
 			echo "<a href='article.php?link=".$article."'>".$articleNames[$article]."</a><br>";
 		else
 			echo "<a href='article.php?link=".$article."'>".$article."</a><br>";
 	}
 	?>
+	<a href='article.php?new=1'>+New Page</a>
 </div>
 
 <div class="main">
 	<form method='post' action='save.php' target="_self">
 		<?php
-		if(isset($_GET['link'])){
-		echo "<input type='hidden' name='link' value='".$_GET['link']."'>";
+		if(isset($_GET['link']))
+			echo "<input type='hidden' name='link' value='".$_GET['link']."'>";
 		?>
 		<div id='mainTxt'>
 			<?php
+
+			if(isset($_GET['link'])){
 				$contents = explode("|", file_get_contents(__DIR__ . "/../ARTICLES/".$_GET['link']));
 				if(sizeof($contents)>1)
 					echo $contents[1];
 				else
 					echo $contents[0];
+			} elseif(isset($_GET['new'])){
+				echo file_get_contents("newpage.html");
 			}
+
 			?>
 		</div>
 	</form>

@@ -14,6 +14,8 @@ if(isset($_POST['link'])){
 		}
 		file_put_contents("../ARTICLES/".$article, $title."|".$content);
 
+		echo $_SERVER['HTTP_REFERER'];
+
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 
 	}
