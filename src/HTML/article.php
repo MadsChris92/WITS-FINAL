@@ -35,7 +35,7 @@
 		?>
 	</div>
 
-	<div class="functions">
+	<div class="bottom">
 		<button id="knas" onclick="onClickEdit()">Edit Article</button>
 
 		<script>
