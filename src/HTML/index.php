@@ -15,12 +15,12 @@
 	<?php
 	foreach ($articles as $article){
 		if(isset($articleNames[$article]) && $article!=null)
-			echo "<a href='article.php?link=".$article."'>".$articleNames[$article]."</a><br>";
+			echo "<a href='index.php?link=".$article."'>".$articleNames[$article]."</a><br>";
 		else
-			echo "<a href='article.php?link=".$article."'>".$article."</a><br>";
+			echo "<a href='index.php?link=".$article."'>".$article."</a><br>";
 	}
 	?>
-	<a href='article.php?new=1'>+New Page</a>
+	<a href='index.php?new=1'>+New Page</a>
 </div>
 
 <div class="main">
@@ -40,6 +40,8 @@
 					echo $contents[0];
 			} elseif(isset($_GET['new'])){
 				echo file_get_contents("newpage.html");
+			} else {
+				echo file_get_contents("welcome.html");
 			}
 
 			?>
