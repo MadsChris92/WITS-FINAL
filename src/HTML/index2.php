@@ -35,8 +35,7 @@
 		if(isset($_GET['link']))
 			echo "<input type='hidden' name='link' value='".$_GET['link']."'>";
 		?>
-		<div id='mainTxt'>
-			<?php
+		<div id='mainTxt'><?php
 
 			if(isset($_GET['link'])){
 				echo file_get_contents("../ARTICLES/".$_GET['link']);
@@ -44,8 +43,7 @@
 				echo file_get_contents("welcome.html");
 			}
 
-			?>
-		</div>
+      ?></div>
 		<div id='editTxt' <?php if(!isset($_GET['new'])) echo "hidden" ?>>
 			<?php echo file_get_contents("newpage.html")?>
 		</div>
@@ -55,8 +53,10 @@
 		<?php
 		if(isset($_GET['link'])){
 			echo "<button id='edit_article' onclick='onClickEdit()'>Edit Article</button>";
+			echo "<a href='delete.php?link=".$_GET['link']."' target='result' id='delete_article' onclick='onClickDelete()'>Delete Article</a>";
 		}
 		?>
+		<iframe name='result' id='result' hidden></iframe>
 		<script>
 			function onClickEdit() {
 				var content = document.getElementById("mainTxt").innerHTML;
@@ -75,11 +75,18 @@
 				document.getElementById("edit_article").onclick = onClickCancel;
 				document.getElementById("edit_article").innerHTML = "Discard Changes";
 			}
+
 			function onClickCancel() {
 				document.getElementById("mainTxt").removeAttribute('hidden');
 				document.getElementById("editTxt").setAttribute('hidden', 'hidden');
 				document.getElementById("edit_article").onclick = onClickEdit;
 				document.getElementById("edit_article").innerHTML = "Edit Article";
+			}
+
+			function onClickDelete() {
+				if(confirm("Are you completely sure you want to delete this article?")){
+
+				}
 			}
 		</script>
 	</div>

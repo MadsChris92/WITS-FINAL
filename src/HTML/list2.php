@@ -23,5 +23,5 @@ foreach (array_keys($articles) as $article){
 	}
 }
 file_put_contents("../articleList", json_encode($articles));
-//echo json_encode($articles);
+echo json_encode($articles);
 ?>

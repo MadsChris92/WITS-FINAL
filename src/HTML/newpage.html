@@ -1,4 +1,4 @@
-<input id="article_file_input" type="text" name="link" placeholder="name your article"
+<input id="article_file_input" type="text" name="link" placeholder="filename" pattern="[A-Za-z]{1,}" title="Only letters and numbers are allowed"
 	   onchange="document.getElementById('article_title_input').placeholder = this.value;" required>
 <input id="article_title_input" type="text" name="title" placeholder="Title of article">
 <textarea name="content" class="txt" id="article_content_input" title="Content of the article" required></textarea>
