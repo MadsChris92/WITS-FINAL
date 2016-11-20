@@ -17,7 +17,7 @@ if(isset($_POST['link'])){
 		echo $_SERVER['HTTP_REFERER'];
 
 		//header('Location: '.$_SERVER['HTTP_REFERER']);
-		//header('Location: '.'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) . '/index.php?link=' . htmlentities($article));
+		header('Location: '.'http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) . '/index.php?link=' . htmlentities($article));
 
 	}
 }
