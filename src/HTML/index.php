@@ -52,6 +52,7 @@
 		<?php
 		if(isset($_GET['link'])){
 			echo '<button id="knas" onclick="onClickEdit()">Edit Article</button>';
+			echo "<a href='delete.php?link=".$_GET['link']."' id='delete_article' onclick='return onClickDelete()'>Delete Article</a>";
 		}
 		?>
 		<input type="hidden" id="hide">
@@ -69,6 +70,10 @@
 				document.getElementById("mainTxt").innerHTML = document.getElementById("hide").value;
 				document.getElementById("knas").onclick = onClickEdit;
 				document.getElementById("knas").innerHTML = "Edit Article";
+			}
+
+			function onClickDelete() {
+				return confirm("Are you completely sure you want to delete this article?");
 			}
 		</script>
 	</div>

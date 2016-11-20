@@ -53,7 +53,7 @@
 		<?php
 		if(isset($_GET['link'])){
 			echo "<button id='edit_article' onclick='onClickEdit()'>Edit Article</button>";
-			echo "<a href='delete.php?link=".$_GET['link']."' target='result' id='delete_article' onclick='onClickDelete()'>Delete Article</a>";
+			echo "<a href='delete.php?link=".$_GET['link']."' target='result' id='delete_article' onclick='return onClickDelete()'>Delete Article</a>";
 		}
 		?>
 		<iframe name='result' id='result' hidden></iframe>
@@ -84,9 +84,7 @@
 			}
 
 			function onClickDelete() {
-				if(confirm("Are you completely sure you want to delete this article?")){
-
-				}
+				return confirm("Are you completely sure you want to delete this article?");
 			}
 		</script>
 	</div>
